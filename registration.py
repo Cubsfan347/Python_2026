@@ -1,0 +1,19 @@
+"""
+-----------------------------------------------------------------------
+ASSIGNMENT 5A: INPUT VALIDATION
+-----------------------------------------------------------------------
+[ ] 1. Header Docstring included.
+[ ] 2. All 5 inputs have 'while' loop validation.
+[ ] 3. The more tickets loop uses .upper() and correct Boolean logic.
+[ ] 4. Include a try and except statement around the entire program. Should have one defined
+       exception (probably value error) and a generic exception
+[ ] 5. Have pinned a variable in the WATCH window and took a screenshot.
+-----------------------------------------------------------------------
+"""
+
+fname = input("please enter your first name:  ")
+lname = input("please enter your last name:  ")
+age = int(input("please enter person's age  "))
+phone = input("please enter phone_number:  ")
+ticket_count = int(input("how many tickets are you buying?:  "))
+additional_tickets = input("are additional tickets being sold?:(y/n)  ").upper()
