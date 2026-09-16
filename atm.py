@@ -15,13 +15,12 @@ ASSIGNMENT REQUIREMENTS
 balance = 1000.00
 
 choice = 1
-while choice > 0 and choice < 5:
+while choice > 0 and choice < 4:
 
     print(f"1. show balance")
     print(f"2. deposit")
     print(f"3. withdraw")
-    print(f"4. transfer")
-    print(f"5. exit")
+    print(f"4. exit")
     choice = int(input("please enter number of your selection"))
 
     # Decision: match compares "choice" to each case and runs the matching block
@@ -41,5 +40,3 @@ while choice > 0 and choice < 5:
             print(f"your new balance is: ${balance:.2f}")
         case 4:
             print("goodbye")
-
-            # break
