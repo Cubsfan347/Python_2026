@@ -13,8 +13,10 @@ ASSIGNMENT REQUIREMENTS
 """
 
 balance = 1000.00
+
 choice = 1
 while choice > 0 and choice < 5:
+
     print(f"1. show balance")
     print(f"2. deposit")
     print(f"3. withdraw")
@@ -30,7 +32,7 @@ while choice > 0 and choice < 5:
         case 2:
             print("Deposit")
             deposit = float(input("How much is your deposit?"))
-            balance = balance + deposit
+            balance += deposit
             print(f"your new balance is: ${balance:.2f}")
         case 3:
             print("withdraw")
@@ -38,7 +40,6 @@ while choice > 0 and choice < 5:
             balance = balance - withdraw
             print(f"your new balance is: ${balance:.2f}")
         case 4:
-            print("transfer")
-            transfer = float(input("how much is your transfer?"))
-        case 5:
             print("goodbye")
+
+            # break
