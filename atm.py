@@ -34,7 +34,11 @@ while choice > 0 and choice < 5:
             print(f"your new balance is: ${balance:.2f}")
         case 3:
             print("withdraw")
+            withdraw = float(input("how much is your withdraw?"))
+            balance = balance - withdraw
+            print(f"your new balance is: ${balance:.2f}")
         case 4:
             print("transfer")
+            transfer = float(input("how much is your transfer?"))
         case 5:
             print("goodbye")
