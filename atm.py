@@ -14,29 +14,54 @@ ASSIGNMENT REQUIREMENTS
 
 balance = 1000.00
 
-choice = 1
-while choice > 0 and choice < 4:
+
+while True:
 
     print(f"1. show balance")
     print(f"2. deposit")
     print(f"3. withdraw")
     print(f"4. exit")
-    choice = int(input("please enter number of your selection"))
-
+    try:
+        choice = int(input("please enter number of your selection"))
+    except ValueError:
+        print("That is not a valid number. Please enter digits only")
+        continue
+    except Exception as e:
+        print(e)
+        continue
     # Decision: match compares "choice" to each case and runs the matching block
     match choice:
 
         case 1:
             print(f"your balance is: ${balance:.2f}")
         case 2:
-            print("Deposit")
-            deposit = float(input("How much is your deposit?"))
-            balance += deposit
-            print(f"your new balance is: ${balance:.2f}")
+            try:
+                print("Deposit")
+                deposit = float(input("How much is your deposit?"))
+                balance += deposit
+                print(f"your new balance is: ${balance:.2f}")
+            except ValueError:
+                print("That is not a valid number. Please enter digits only")
+                continue
+            except Exception as e:
+                print(e)
+                continue
         case 3:
-            print("withdraw")
-            withdraw = float(input("how much is your withdraw?"))
-            balance = balance - withdraw
-            print(f"your new balance is: ${balance:.2f}")
+            try:
+
+                print("withdraw")
+                withdraw = float(input("how much is your withdraw?"))
+                balance = balance - withdraw
+                print(f"your new balance is: ${balance:.2f}")
+            except ValueError:
+                print("That is not a valid number. Please enter digits only")
+                continue
+            except Exception as e:
+                print(e)
+                continue
         case 4:
             print("goodbye")
+            break
+        case _:
+            print("There was a data entry error")
+            continue
