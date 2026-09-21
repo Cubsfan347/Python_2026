@@ -51,6 +51,9 @@ while True:
 
                 print("withdraw")
                 withdraw = float(input("how much is your withdraw?"))
+                if withdraw > balance:
+                    print("not enough funds")
+                    continue
                 balance = balance - withdraw
                 print(f"your new balance is: ${balance:.2f}")
             except ValueError:
