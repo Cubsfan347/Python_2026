@@ -10,3 +10,24 @@ ASSIGNMENT 6A: TICKET SALES
 [ ] 6. Repeat until user quits or seats are empty.
 -----------------------------------------------------------------------
 """
+
+tickets = list(range(1, 21))  # creating list of available tickets
+while True:  # keep going til user says stop
+    if len(tickets) == 0:
+        print("there are no tickets available")
+        break
+    print(tickets)
+    print("seats available")
+    try:
+        seat = int(input("please pick a seat, enter 0 to quit"))
+
+        if seat == 0:
+            print("goodbye")
+            break
+
+        else:
+            tickets.remove(seat)
+            continue
+    except ValueError:
+        print("that seat is not available. Make sure you've entered a number")
+        continue
