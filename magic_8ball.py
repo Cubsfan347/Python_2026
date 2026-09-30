@@ -28,7 +28,7 @@ print("Welcome to the Digital Oracle!")
 
 # TODO: Create a while loop that keeps asking questions
 # TODO: Use random.choice(RESPONSES) to answer
-# TODO: If user types "quit", break the loop .
+# TODO: If user types "quit", break the loop
 
 
 # the magic 8 ball
