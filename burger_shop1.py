@@ -16,10 +16,122 @@ def menu():
     pass
 
 
+def order(phone):
+    while True:
+        count = 1
+        for size in SIZES:
+            print(f"{count}.  {size}")
+            count += 1
+        try:
+            size = int(input("please enter the number of what size you would like:  "))
+            if size < 1 or size > 3:
+                print("enter number between 1 and 3")
+                continue
+            else:
+                break
+        except ValueError:
+            print("enter number between 1 and 3")
+            continue
+
+    while True:
+        count = 1
+        for cheese in CHEESES:
+            print(f"{count}.  {cheese}")
+            count += 1
+        try:
+            size = int(
+                input(
+                    "please enter the number of what kind of cheese you would like:  "
+                )
+            )
+            if size < 1 or size > len(CHEESES):
+                print(f"enter number between 1 and {len(CHEESES)}")
+                continue
+            else:
+                break
+        except ValueError:
+            print(f"enter number between 1 and {len(CHEESES)}")
+            continue
+    while True:
+        count = 1
+        for condiment in CONDIMENTS:
+            print(f"{count}.  {condiment}")
+            count += 1
+        try:
+            size = int(
+                input("please enter the number of what condiments you would like:  ")
+            )
+            if size < 1 or size > len(CONDIMENTS):
+                print(f"enter number between 1 and {len(CONDIMENTS)}")
+                continue
+            else:
+                break
+        except ValueError:
+            print(f"enter number between 1 and {len(CONDIMENTS)}")
+            continue
+
+    while True:
+        count = 1
+        for size in TOPPINGS:
+            print(f"{count}.  {topping}")
+            count += 1
+        try:
+            size = int(
+                input("please enter the number of what topping you would like:  ")
+            )
+            if size < 1 or size > len(TOPPINGS):
+                print(f"enter number between 1 and {len(TOPPINGS)}")
+                continue
+            else:
+                break
+        except ValueError:
+            print(f"enter number between 1 and {len(TOPPINGS)}")
+            continue
+
+    while True:
+        count = 1
+        for size in DRINKS:
+            print(f"{count}.  {drink}")
+            count += 1
+        try:
+            size = int(input("please enter the number of what drink you would like:  "))
+            if size < 1 or size > len(DRINKS):
+                print(f"enter number between 1 and {len(DRINKS)}")
+                continue
+            else:
+                break
+        except ValueError:
+            print(f"enter number between 1 and {len(DRINKS)}")
+            continue
+
+    while True:
+        count = 1
+        for size in DRINK_SIZE:
+            print(f"{count}.  {drink_size}")
+            count += 1
+        try:
+            size = int(
+                input("please enter the number of what drink size you would like:  ")
+            )
+            if size < 1 or size > len(DRINK_SIZE):
+                print(f"enter number between 1 and {len(DRINK_SIZE)}")
+                continue
+            else:
+                break
+        except ValueError:
+            print(f"enter number between 1 and {len(DRINK_SIZE)}")
+            continue
+
+
 def login():
     # get user information
     # check if customer already exists
-    pass
+    phone = input("please enter your phone number:   ")
+    name = input("please enter your name:  ")
+    with open("customer_list.txt", "a") as f:
+        f.write(f"{phone}\n")
+        f.write(f"{name}\n")
+    return phone, name
 
 
 def confirm_order(order):
@@ -36,10 +148,10 @@ def display_order(order):
 
 
 def main():
-    id = login()
-    order = menu(id)
-    confirm_order(order)
-    display(order)
+    phone, name = login()
+    my_order = order(phone)
+    confirm_order(my_order)
+    display_order(my_order)
 
 
 main()
