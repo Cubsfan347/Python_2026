@@ -58,10 +58,10 @@ def order(phone):
             print(f"{count}.  {condiment}")
             count += 1
         try:
-            size = int(
+            condiment = int(
                 input("please enter the number of what condiments you would like:  ")
             )
-            if size < 1 or size > len(CONDIMENTS):
+            if condiment < 1 or condiment > len(CONDIMENTS):
                 print(f"enter number between 1 and {len(CONDIMENTS)}")
                 continue
             else:
@@ -72,14 +72,14 @@ def order(phone):
 
     while True:
         count = 1
-        for size in TOPPINGS:
+        for topping in TOPPINGS:
             print(f"{count}.  {topping}")
             count += 1
         try:
-            size = int(
+            topping = int(
                 input("please enter the number of what topping you would like:  ")
             )
-            if size < 1 or size > len(TOPPINGS):
+            if topping < 1 or topping > len(TOPPINGS):
                 print(f"enter number between 1 and {len(TOPPINGS)}")
                 continue
             else:
@@ -90,12 +90,14 @@ def order(phone):
 
     while True:
         count = 1
-        for size in DRINKS:
+        for drink in DRINKS:
             print(f"{count}.  {drink}")
             count += 1
         try:
-            size = int(input("please enter the number of what drink you would like:  "))
-            if size < 1 or size > len(DRINKS):
+            drink = int(
+                input("please enter the number of what drink you would like:  ")
+            )
+            if drink < 1 or drink > len(DRINKS):
                 print(f"enter number between 1 and {len(DRINKS)}")
                 continue
             else:
@@ -106,14 +108,14 @@ def order(phone):
 
     while True:
         count = 1
-        for size in DRINK_SIZE:
+        for drink_size in DRINK_SIZE:
             print(f"{count}.  {drink_size}")
             count += 1
         try:
             size = int(
                 input("please enter the number of what drink size you would like:  ")
             )
-            if size < 1 or size > len(DRINK_SIZE):
+            if drink_size < 1 or drink_size > len(DRINK_SIZE):
                 print(f"enter number between 1 and {len(DRINK_SIZE)}")
                 continue
             else:
