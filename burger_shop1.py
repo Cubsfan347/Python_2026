@@ -12,8 +12,12 @@ import menu
 
 
 def order(phone):
+    menu_items = menu.read_menu()
+    sizes, cheeses, condiments, toppings, drinks, drink_size = (
+        menu.split_into_variables(menu_items)
+    )
     while True:
-        my_length = menu.
+        my_length = menu.print_sizes(sizes)
         try:
             size = int(input("please enter the number of what size you would like:  "))
             if size < 1 or size > 3:
@@ -26,23 +30,20 @@ def order(phone):
             continue
 
     while True:
-        count = 1
-        for cheese in CHEESES:
-            print(f"{count}.  {cheese}")
-            count += 1
+        my_length = menu.print_cheeses(cheeses)
         try:
-            size = int(
+            cheese = int(
                 input(
                     "please enter the number of what kind of cheese you would like:  "
                 )
             )
-            if size < 1 or size > len(CHEESES):
-                print(f"enter number between 1 and {len(CHEESES)}")
+            if size < 1 or size > my_length:
+                print(f"enter number between 1 and {my_length}")
                 continue
             else:
                 break
         except ValueError:
-            print(f"enter number between 1 and {len(CHEESES)}")
+            print(f"enter number between 1 and {my_length}")
             continue
     while True:
         count = 1
