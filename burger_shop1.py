@@ -1,27 +1,19 @@
 # define stubs
 
-# GLOBAL CONSTANTS (sizes, cheese type, condiments,toppings, drinks)
-SIZES = ("Single", "Double", "Triple")
-CHEESES = ("American", "Swiss", "Provolone", "Cheddar", "Pepper Jack")
-CONDIMENTS = ("Ketchup", "Mustard", "Mayo")
-TOPPINGS = ("Bacon", "Lettuce", "Onion", "Mushrooms", "Olives", "Tomato", "Pickles")
-DRINKS = ("Coke", "Diet Coke", "Sprite", "Lemonade", "Water")
-DRINK_SIZE = ("Small", "Medium", "Large")
+# # GLOBAL CONSTANTS (sizes, cheese type, condiments,toppings, drinks)
+# SIZES = ("Single", "Double", "Triple")
+# CHEESES = ("American", "Swiss", "Provolone", "Cheddar", "Pepper Jack")
+# CONDIMENTS = ("Ketchup", "Mustard", "Mayo")
+# TOPPINGS = ("Bacon", "Lettuce", "Onion", "Mushrooms", "Olives", "Tomato", "Pickles")
+# DRINKS = ("Coke", "Diet Coke", "Sprite", "Lemonade", "Water")
+# DRINK_SIZE = ("Small", "Medium", "Large")
 
-
-def menu():
-    # display menu options
-    # get user selection
-    # customize
-    pass
+import menu
 
 
 def order(phone):
     while True:
-        count = 1
-        for size in SIZES:
-            print(f"{count}.  {size}")
-            count += 1
+        my_length = menu.
         try:
             size = int(input("please enter the number of what size you would like:  "))
             if size < 1 or size > 3:

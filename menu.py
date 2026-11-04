@@ -43,46 +43,75 @@ def split_into_variables(menu_items):
     return sizes, cheeses, condiments, toppings, drinks, drink_size
 
 
-def print_menu(sizes, cheeses, condiments, toppings, drinks, drink_size):
+# def print_menu(sizes, cheeses, condiments, toppings, drinks, drink_size):
 
+
+def print_sizes(sizes):
     print("Sizes\n")
-    print(sizes)
     sizes_item = sizes.split(",")
+    count = 1
     for item in sizes_item:
-        print(f"\t{item.strip()}")
+        print(f"{count}.  {item.strip()}")
+        count += 1
+    return len(sizes_item)
 
+
+def print_cheeses(cheeses):
     print("Cheeses\n")
     cheeses_item = cheeses.split(",")
+    count = 1
     for item in cheeses_item:
-        print(f"\t{item.strip()}")
+        print(f"{count}.\t{item.strip()}")
+        count += 1
+    return len(cheeses_item)
 
+
+def print_condiments(condiments):
     print("Condiments\n")
     condiments_item = condiments.split(",")
+    count = 1
     for item in condiments_item:
-        print(f"\t{item.strip()}")
+        print(f"{count}.\t{item.strip()}")
+        count += 1
+    return len(condiments_item)
 
+
+def print_toppings(toppings):
     print("Toppings\n")
     toppings_item = toppings.split(",")
+    count = 1
     for item in toppings_item:
-        print(f"\t{item.strip()}")
+        print(f"{count}\t{item.strip()}")
+        count += 1
+    return len(toppings_item)
 
+
+def print_drinks(drinks):
     print("Drinks\n")
     drinks_item = drinks.split(",")
+    count = 1
     for item in drinks_item:
-        print(f"\t{item.strip()}")
+        print(f"{count}.\t{item.strip()}")
+        count += 1
+    return len(drinks_item)
 
+
+def print_drink_size(drink_size):
     print("Drink_size\n")
-    drink_size = drink_size.split(",")
-    for item in drink_size:
-        print(f"\t{item.strip()}")
+    drink_size_item = drink_size.split(",")
+    count = 1
+    for item in drink_size_item:
+        print(f"{count}.\t{item.strip()}")
+        count += 1
+    return len(drink_size_item)
 
 
-def main():
-    menu_items = read_menu()
-    sizes, cheeses, condiments, toppings, drinks, drink_size = split_into_variables(
-        menu_items
-    )
-    print_menu(sizes, cheeses, condiments, toppings, drinks, drink_size)
+# def main():
+#     menu_items = read_menu()
+#     sizes, cheeses, condiments, toppings, drinks, drink_size = split_into_variables(
+#         menu_items
+#     )
+#     print_menu(sizes, cheeses, condiments, toppings, drinks, drink_size)
 
 
-main()
+# main()
