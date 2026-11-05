@@ -12,6 +12,7 @@ import menu
 
 
 def order(phone):
+    order = ""
     menu_items = menu.read_menu()
     sizes, cheeses, condiments, toppings, drinks, drink_size = (
         menu.split_into_variables(menu_items)
@@ -24,6 +25,7 @@ def order(phone):
                 print("enter number between 1 and 3")
                 continue
             else:
+                order += sizes[size - 1]
                 break
         except ValueError:
             print("enter number between 1 and 3")
@@ -41,80 +43,75 @@ def order(phone):
                 print(f"enter number between 1 and {my_length}")
                 continue
             else:
+                order += cheeses[cheese - 1]
                 break
         except ValueError:
             print(f"enter number between 1 and {my_length}")
             continue
     while True:
-        count = 1
-        for condiment in CONDIMENTS:
-            print(f"{count}.  {condiment}")
-            count += 1
+        my_length = menu.print_condiments(condiments)
         try:
             condiment = int(
-                input("please enter the number of what condiments you would like:  ")
+                input("please enter the number of what condiment you would like:  ")
             )
-            if condiment < 1 or condiment > len(CONDIMENTS):
-                print(f"enter number between 1 and {len(CONDIMENTS)}")
+            # todo allow more than one
+            if condiment < 1 or condiment > my_length:
+                print(f"enter number between 1 and {my_length}")
                 continue
             else:
+                order += condiments[condiment - 1]
                 break
         except ValueError:
-            print(f"enter number between 1 and {len(CONDIMENTS)}")
+            print(f"enter number between 1 and {my_length}")
             continue
 
     while True:
-        count = 1
-        for topping in TOPPINGS:
-            print(f"{count}.  {topping}")
-            count += 1
+        my_length = menu.print_toppings(toppings)
         try:
             topping = int(
                 input("please enter the number of what topping you would like:  ")
             )
-            if topping < 1 or topping > len(TOPPINGS):
-                print(f"enter number between 1 and {len(TOPPINGS)}")
+            # todo allow more than one
+            if topping < 1 or topping > my_length:
+                print(f"enter number between 1 and {my_length}")
                 continue
             else:
+                order += toppings[topping - 1]
                 break
         except ValueError:
-            print(f"enter number between 1 and {len(TOPPINGS)}")
+            print(f"enter number between 1 and {my_length}")
             continue
 
     while True:
-        count = 1
-        for drink in DRINKS:
-            print(f"{count}.  {drink}")
-            count += 1
+        my_length = menu.print_drinks(drinks)
         try:
             drink = int(
                 input("please enter the number of what drink you would like:  ")
             )
-            if drink < 1 or drink > len(DRINKS):
-                print(f"enter number between 1 and {len(DRINKS)}")
+            if drink < 1 or drink > my_length:
+                print(f"enter number between 1 and {my_length}")
                 continue
             else:
+                order += drinks[drink - 1]
                 break
         except ValueError:
-            print(f"enter number between 1 and {len(DRINKS)}")
+            print(f"enter number between 1 and {my_length}")
             continue
 
     while True:
-        count = 1
-        for drink_size in DRINK_SIZE:
-            print(f"{count}.  {drink_size}")
-            count += 1
+        my_length = menu.print_drink_size(drink_size)
         try:
-            size = int(
+            drink = int(
                 input("please enter the number of what drink size you would like:  ")
             )
-            if drink_size < 1 or drink_size > len(DRINK_SIZE):
-                print(f"enter number between 1 and {len(DRINK_SIZE)}")
+            if drink < 1 or drink > my_length:
+                print(f"enter number between 1 and {my_length}")
                 continue
             else:
+                order += drink_size[drink - 1]
                 break
         except ValueError:
-            print(f"enter number between 1 and {len(DRINK_SIZE)}")
+            print(f"enter number between 1 and {my_length}")
             continue
 
 
