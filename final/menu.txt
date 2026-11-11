@@ -1,0 +1,6 @@
+SIZES : single, double, triple
+CHEESES : american,swiss,provolone,cheddar,pepper jack
+CONDIMENTS : ketchup,mustard,mayo
+TOPPINGS : bacon,lettuce,onion,mushrooms,olives,tomato,pickles
+DRINKS : coke,diet coke,sprite,lemonade,water
+DRINK_SIZE : small,medium,large
