@@ -1,9 +1,15 @@
-import Python_2026.final.menu as menu
+import menu
+from pathlib import Path
 
 
 def order(phone):
     order = []
     menu_items = menu.read_menu()
+
+    if not menu_items:
+        print("Unable to place an order because the menu could not be loaded.")
+        return order
+
     sizes, cheeses, condiments, toppings, drinks, drink_size = (
         menu.split_into_variables(menu_items)
     )
@@ -34,11 +40,11 @@ def order(phone):
                     "please enter the number of what kind of cheese you would like:  "
                 )
             )
-            if size < 1 or size > my_length:
+            if cheese < 1 or cheese > my_length:
                 print(f"enter number between 1 and {my_length}")
                 continue
             else:
-                order += cheeses[cheese - 1]
+                order.append(cheeses.split(",")[cheese - 1].strip())
                 break
         except ValueError:
             print(f"enter number between 1 and {my_length}")
@@ -54,7 +60,7 @@ def order(phone):
                 print(f"enter number between 1 and {my_length}")
                 continue
             else:
-                order += condiments[condiment - 1]
+                order.append(condiments.split(",")[condiment - 1].strip())
                 break
         except ValueError:
             print(f"enter number between 1 and {my_length}")
@@ -71,7 +77,7 @@ def order(phone):
                 print(f"enter number between 1 and {my_length}")
                 continue
             else:
-                order += toppings[topping - 1]
+                order.append(toppings.split(",")[topping - 1].strip())
                 break
         except ValueError:
             print(f"enter number between 1 and {my_length}")
@@ -87,7 +93,7 @@ def order(phone):
                 print(f"enter number between 1 and {my_length}")
                 continue
             else:
-                order += drinks[drink - 1]
+                order.append(drinks.split(",")[drink - 1].strip())
                 break
         except ValueError:
             print(f"enter number between 1 and {my_length}")
@@ -103,15 +109,18 @@ def order(phone):
                 print(f"enter number between 1 and {my_length}")
                 continue
             else:
-                order += drink_size[drink - 1]
+                order.append(drink_size.split(",")[drink - 1].strip())
                 break
         except ValueError:
             print(f"enter number between 1 and {my_length}")
             continue
 
     # printing to file
-    with open("final\\orders.txt", "a") as file:
-        file.write(order)
+    # with Path(__file__).with_name("orders.txt").open("a") as file:
+    #     file.write(", ".join(order) + "\n")
+
+    with open("Python_2026\\final\\orders.txt", "a") as file:
+        file.write(f"{order}")
 
 
 def login():

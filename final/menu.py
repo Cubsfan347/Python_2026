@@ -12,24 +12,28 @@ ASSIGNMENT 12A: THE CONFIGURABLE MENU & AUDITOR
 """
 
 
+from pathlib import Path
+
+
 def read_menu():
     menu_items = {}
     try:
-        with open("final\\menu.txt", "r") as file:
-            for line in file:
+        with Path(__file__).with_name("menu.txt").open("r") as file:
+            for line_number, line in enumerate(file, start=1):
+                if not line.strip():
+                    continue
                 print(line)
-                parts_of_line = line.strip().split(":")
-                category = parts_of_line[0].strip()
-                detail = parts_of_line[1].strip()
+                category, separator, detail = line.partition(":")
+                if not separator:
+                    raise ValueError(f"Invalid menu entry on line {line_number}.")
+                category = category.strip()
+                detail = detail.strip()
                 menu_items[category] = detail
                 print(menu_items)
         return menu_items
     except FileNotFoundError:
-        print("Please make sure menu.txt exists.")
-    except IndexError:
-        return menu_items  # this handles blank lines in the text file
-    except Exception as e:
-        print(e)
+        print(f"Menu file not found: {Path(__file__).with_name('menu.txt')}")
+        return menu_items
 
 
 def split_into_variables(menu_items):
