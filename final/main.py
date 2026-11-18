@@ -1,10 +1,12 @@
 import menu
-from pathlib import Path
+import datetime
 
 
 def order(phone):
     order = []
+    timestamp = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
     menu_items = menu.read_menu()
+    order.append(phone)
 
     if not menu_items:
         print("Unable to place an order because the menu could not be loaded.")
@@ -115,12 +117,10 @@ def order(phone):
             print(f"enter number between 1 and {my_length}")
             continue
 
-    # printing to file
-    # with Path(__file__).with_name("orders.txt").open("a") as file:
-    #     file.write(", ".join(order) + "\n")
-
     with open("Python_2026\\final\\orders.txt", "a") as file:
-        file.write(f"{order}")
+        file.write(f"{timestamp}*{order}\n")
+    order = f"{timestamp}*{order}"
+    return order
 
 
 def login():
@@ -135,29 +135,49 @@ def login():
 
 
 def confirm_order(order):
-    # confirm or change the order
-    # save order to file
-    # total and payment at pickup
+    # read items into all items
+    # grab date time stamp from order
+    # for loop to check which line matches date time stamp
+    # when that is found we assign the index to my_index
+    # break apart order and display numbered items
+    # ask user if it is good or if they need to make changes
+    # make changes as needed
+    # if changes happen we need to update the dictionary line and rewrite the dictionary to the file
+
+    # cancel order - delete in crud
     pass
 
 
 def display_order(order):
-    # display order and pickup time
-    # display total and payment at pickup
-    pass
+    # split order on :
+    # copy the split items from menu same thing
+    # cycle through printing the formatted reciept
+    # add 20 minutes to the current time and tell them it will be ready for pickup at that time
+    order_items = {}
+    try:
+        with open("Python_2026\\final\\orders.txt", "r") as file:
+            for line_number, line in enumerate(file, start=1):
+                if not line.strip():
+                    continue
+                print(line)
+                category, separator, detail = line.partition("*")
 
+                category = category.strip()
+                detail = detail.strip()
+                order_items[category] = detail
+        print(order_items)
 
-def old_orders(phone):
-    # display last 5 orders
-    pass
+    except FileNotFoundError:
+        print(f"Menu file not found: {"Python_2026\\final\\orders.txt"}")
+        return order_items
 
 
 def main():
     phone, name = login()
-    my_order = old_orders(phone)
+
     my_order = order(phone)
     confirm_order(my_order)
-    display_order(my_order)
+    # display_order(my_order)
 
 
 main()
